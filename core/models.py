@@ -1,7 +1,7 @@
-from mongoengine import Document, StringField, ListField, EmbeddedDocumentField
+from mongoengine import Document, EmbeddedDocument, StringField, ListField, EmbeddedDocumentField
 
 
-class Comment(Document):
+class Comment(EmbeddedDocument):
     description = StringField(max_length=100, required=True)
 
 

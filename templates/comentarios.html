@@ -2,30 +2,30 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-
-	<title></title>
+	<link rel="stylesheet" type="text/css"
+		href="{{ url_for('static', filename='css/style.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'
+		rel='stylesheet' type='text/css'>
+	<title>Dojo Feedbak</title>
 </head>
 <body>
+	<form action="/feedback/create" method="POST">
+		<input type="hidden" name="dojo_id" value="{{ dojo.id }}">
+		<div class="container">
+			<div class="templo comentario"></div>
+			<div class="positivo">
+				<h2>Comentário</h2>
+				<textarea name="comment" id="" cols="50" rows="10" class="email com"></textarea>
+			</div>
+			<select name="status" id="" class="selc">
+				<option value="1">positivo</option>
+				<option value="2">negativo</option>
+			</select>
 
-	
-
-	<div class="container">
-		<div class="templo comentario"></div>
-		<div class="positivo">
-			<h2>Comentário</h2>
-			<textarea name="" id="" cols="50" rows="10" class="email com"></textarea>
 		</div>
-		<select name="" id="" class="selc">
-			<option value="1">positivo</option>
-			<option value="2">negativo</option>
-		</select>
-		
-	</div>
-	<div class="salvar">
-		<input type="submit" name="button" class="submit" value="Salvar">
+		<div class="salvar">
+			<input type="submit" name="button" class="submit" value="Salvar">
 		</div>
-
+	</form>
 </body>
 </html>

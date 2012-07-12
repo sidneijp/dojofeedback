@@ -1,13 +1,10 @@
 from flask import Flask
 from views import views
 from mongoengine import connect
+import os
 
 
-connect('app5623357',
-    host='flame.mongohq.com',
-    port=27089,
-    username='dojofeedback',
-    password='android2k11')
+connect('app5623357', host=os.environ['MONGOHQ_URL'])
 
 app = Flask(__name__, static_folder='../static', template_folder='../templates')
 app.secret_key = 'dojofeedback'

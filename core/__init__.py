@@ -3,11 +3,11 @@ from views import views
 from mongoengine import connect
 
 
-connect('dojofeedback',
-    host='localhost',
-    port=27017,
-    username='',
-    password='')
+connect('app5623357',
+    host='flame.mongohq.com',
+    port=27089,
+    username='dojofeedback',
+    password='android2k11')
 
 app = Flask(__name__, static_folder='../static', template_folder='../templates')
 app.secret_key = 'dojofeedback'

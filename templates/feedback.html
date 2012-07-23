@@ -2,28 +2,50 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css"
-        href="{{ url_for('static', filename='css/style.css') }}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'
-        rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <title> Dojo Feedback</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script>
+    $(document).ready(function() {
+        $('.comentarios_feed').toggle(
+
+            function(){
+                $(this).find('div').css("visibility","hidden");   
+                $(this).css("background-color","rgb(0, 0, 0)").css("opacity","0.2");
+            },
+
+            function(){
+                $(this).find('div').attr("style", "");
+                $(this).attr("style", "");
+            }
+        );
+    });
+    </script>
+
 </head>
 <body>
-    POSITIVO:
-    <div class='positives'>
-        <ul>
-            {% for comment in dojo.positives() %}
-                <li>{{ comment.description }}</li>
-            {% endfor %}
-        </ul>
+    
+    <div class='comentarios_feed' id="positivos">
+        <div>
+            <h2>POSITIVO:</h2>
+            <ul>
+                {% for comment in dojo.positives() %}
+                    <li>{{ comment.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-    NEGATIVO:
-    <div class='negatives'>
-        <ul>
-            {% for comment in dojo.negatives() %}
-                <li>{{ comment.description }}</li>
-            {% endfor %}
-        </ul>
+
+    <div class='comentarios_feed' id="negativos">
+        <div>
+            <h2>NEGATIVO:</h2>
+            <ul>
+                {% for comment in dojo.negatives() %}
+                    <li>{{ comment.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </body>
 </html>

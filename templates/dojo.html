@@ -2,26 +2,21 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css"
-		href="{{ url_for('static', filename='css/style.css') }}">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'
-		rel='stylesheet' type='text/css'>
-	<title> Dojo Feedback</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	<title>Dojo Feedback</title>
 </head>
 <body>
 
-	<div class="templo">
-
-	</div>
+	<div class="templo"></div>
 	<h2 class="title_input">
 		Crie um nome para seu Dojo
 	</h2>
-    <form action="/dojo/create" method="post" accept-charset="utf-8">
-	    <input type="text" name="name"
-            placeholder="Nome do dojo" class="email">
-	    <input type="submit" name="button" class="submit" value="Criar" class="tip">
+    <form action="/dojo/create" method="post" accept-charset="utf-8" class="form_novo">
+	    <input type="text" name="name" placeholder="Nome do dojo" class="email">
+	    <input type="submit" name="button" class="submit tip" value="Criar">
     </form>
 	<div class="palco"></div>
-	<a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a>
+	<!-- <a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a> -->
 </body>
 </html>

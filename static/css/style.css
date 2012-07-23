@@ -15,9 +15,14 @@ body{
   
 }
 
-.comentario{
+.templo_top{
     margin-top: 10px;
 }
+
+h2.titulo_centro{
+    text-align:center;
+}
+style="text-align:center;"
 
 .title_input{
     margin-top: 40px;
@@ -123,6 +128,11 @@ body{
     overflow: auto;
 }
 
+.comentarios_feed:hover{
+    border:1px solid #E85;
+    background-color:rgba(255,245,230,0.6);
+    cursor: pointer;
+}
 .comentarios_feed h2{
     margin:0px 0px 5px 10px;
     padding:5px;

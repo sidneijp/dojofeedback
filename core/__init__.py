@@ -4,8 +4,8 @@ from mongoengine import connect
 import os
 
 
-connect('app5623357', host=os.environ['MONGOHQ_URL'])
-#connect('app5623357', host='localhost')
+#connect('app5623357', host=os.environ['MONGOHQ_URL'])
+connect('app5623357', host='localhost')
 
 app = Flask(__name__, static_folder='../static', template_folder='../templates')
 app.secret_key = 'dojofeedback'

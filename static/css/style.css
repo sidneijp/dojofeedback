@@ -35,32 +35,37 @@ style="text-align:center;"
 }
 
 .submit {
-    margin: 0px;
+    margin: 10px;
     width: 102px;
-    height: 31px;
+    height: 30px;
     border: 0px;
     font: 14px Verdana, Geneva, Arial, Helvetica, sans-serif;
     background-image: url(../img/bg_submit.png);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-color: inherit;
     color: #FFF;
-    /*box-shadow: 0 0 1px #000;
-    -moz-box-shadow: 0 0 1px #000;
-    -webkit-box-shadow: 0 0 1px, #000;*/
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 2px #000;
+    -moz-box-shadow: 1px 1px 2px #000;
+    -webkit-box-shadow: 1px 1px 2px, #000;
     cursor:pointer;
-    padding: 0;  
+    padding: 0;
+    font-weight:bold;
 }
 
 .submit:hover{
-    color:#CC2;
+    opacity:0.80;
 }
 
-.submit:active {
-    background-image: url(../img/bg_submit_hover.png);
-    background-position: center;
-    background-size:102px 31px;/*Alterar o tamanho da imagem*/
-    color:#CC2;
+.submit_green{
+    background-image: url(../img/bg_submit_green.png);
+}
+
+.submit_red{
+    background-image: url(../img/bg_submit_red.png);
 }
 
 .palco{
@@ -68,8 +73,8 @@ style="text-align:center;"
     height: 400px;
     height: 296px;
     background: url(../img/palco.png);
-   background-position: center;
-   background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -118,8 +123,8 @@ style="text-align:center;"
 .comentarios_feed{
     float: left;
     width:47.5%;
-    min-height:400px;
-    margin:10px 1% 10px 1%;
+    min-height:900px;
+    margin:10px 1% 15px 1%;
     -moz-border-radius: 5px 5px 5px 5px;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;

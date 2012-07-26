@@ -4,7 +4,7 @@ from flask import abort
 
 
 class Comment(EmbeddedDocument):
-    description = StringField(max_length=100, required=True)
+    description = StringField(max_length=500, required=True)
     status = StringField(max_length=100, required=True)
 
 

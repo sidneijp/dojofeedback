@@ -2,9 +2,36 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <title> Dojo Feedback</title>
+</head>
+<body>
+    <div class="templo templo_top"></div>
+    <h2 class="titulo_centro">Feedback</h2>
+    <div class='comentarios_feed' id="positivos">
+    <h2>POSITIVO:</h2>    
+        <div>
+            <ul>
+                {% for comment in dojo.positives() %}
+                    <li>{{ comment.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class='comentarios_feed' id="negativos">
+    <h2>NEGATIVO:</h2>
+        <div>
+        
+            <ul>
+                {% for comment in dojo.negatives() %}
+                    <li>{{ comment.description }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script>
 
@@ -36,31 +63,5 @@
     });
     </script>
 
-</head>
-<body>
-    <div class="templo templo_top"></div>
-    <h2 class="titulo_centro">Feedback</h2>
-    <div class='comentarios_feed' id="positivos">
-    <h2>POSITIVO:</h2>    
-        <div>
-            <ul>
-                {% for comment in dojo.positives() %}
-                    <li>{{ comment.description }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-
-    <div class='comentarios_feed' id="negativos">
-    <h2>NEGATIVO:</h2>
-        <div>
-        
-            <ul>
-                {% for comment in dojo.negatives() %}
-                    <li>{{ comment.description }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
 </body>
 </html>

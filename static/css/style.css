@@ -131,6 +131,11 @@ style="text-align:center;"
     border:1px solid #CCC;
     background-color:rgba(255,255,255,0.6);
     overflow: auto;
+    -moz-user-select: none; 
+    -khtml-user-select: none; 
+    -webkit-user-select: none; 
+    -o-user-select: none;
+
 }
 
 .comentarios_feed:hover{

@@ -7,17 +7,30 @@
     <title> Dojo Feedback</title>
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script>
-    $(document).ready(function() {
-        $('.comentarios_feed').toggle(
 
+    function hideComments(element){
+        element.find('div').css("visibility","hidden");
+        element.find('h2').css("color","#FFF");   
+        element.css("background-color","rgb(0, 0, 0)").css("opacity","0.2");
+    }
+
+    function showComments(element){
+        element.find('div').attr("style", "");
+        element.find('h2').attr("style", "");  
+        element.attr("style", "");
+    }
+
+    $(document).ready(function() {
+        
+        hideComments($('.comentarios_feed'));
+
+        $('.comentarios_feed').toggle(
             function(){
-                $(this).find('div').css("visibility","hidden");   
-                $(this).css("background-color","rgb(0, 0, 0)").css("opacity","0.2");
+                showComments($(this));
             },
 
             function(){
-                $(this).find('div').attr("style", "");
-                $(this).attr("style", "");
+                hideComments($(this));   
             }
         );
     });
@@ -28,8 +41,8 @@
     <div class="templo templo_top"></div>
     <h2 class="titulo_centro">Feedback</h2>
     <div class='comentarios_feed' id="positivos">
+    <h2>POSITIVO:</h2>    
         <div>
-            <h2>POSITIVO:</h2>
             <ul>
                 {% for comment in dojo.positives() %}
                     <li>{{ comment.description }}</li>
@@ -39,8 +52,9 @@
     </div>
 
     <div class='comentarios_feed' id="negativos">
+    <h2>NEGATIVO:</h2>
         <div>
-            <h2>NEGATIVO:</h2>
+        
             <ul>
                 {% for comment in dojo.negatives() %}
                     <li>{{ comment.description }}</li>

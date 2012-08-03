@@ -8,18 +8,33 @@
 </head>
 <body>
 
-    <div class="templo"></div>
-    <h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
-    <form action="/dojo/create" method="post" accept-charset="utf-8" class="form_novo">
-        <input type="text" name="name" placeholder="Nome do dojo" class="email">
-        <input type="submit" name="button" class="submit tip" value="Criar">
+	<div class="templo"></div>
+	<h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
+    <form action="#" method="post" accept-charset="utf-8" class="form_novo">
+	    <input type="text" name="name" placeholder="Nome do dojo" class="email">
+	    <input type="button" name="button" class="submit tip" value="Criar">
+	    <input type="submit" name="button" class="submit tip" value="Criar">
+        {% if form.name.errors %}
+            {% for error in form.name.errors %}
+                <br>{{ error }}
+            {% endfor %}
+        {% endif %}
     </form>
-    <dl class="links">
+	<dl class="links">
         <dt>Página de Comentários</dt><dd>dojofeedback.herokuapp.com/dojo/meudojo/</dd>
         <dt>Página de Feedback</dt><dd>dojofeedback.herokuapp.com/dojo/meudojo/feedback</dd>
     </dl>
-    
-    <!-- <a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a> -->
+	<!-- <a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a> -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.submit').on('click', function() {
+				$.post('dojo/create', {name: $('input[name]').val()}, function(data){
+					alert(data);
+				});
+			});
+		});
+	</script>
 
 </body>
 </html>

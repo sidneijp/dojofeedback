@@ -7,14 +7,23 @@
 	<title>Dojo Feedback</title>
 </head>
 <body>
-
 	<div class="templo"></div>
 	<h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
-    <form action="/dojo/create" method="post" accept-charset="utf-8" class="form_novo">
+    <form action="#" method="post" accept-charset="utf-8" class="form_novo">
 	    <input type="text" name="name" placeholder="Nome do dojo" class="email">
-	    <input type="submit" name="button" class="submit tip" value="Criar">
+	    <input type="button" name="button" class="submit tip" value="Criar">
     </form>
 	<div class="palco"></div>
 	<!-- <a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a> -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.submit').on('click', function() {
+				$.post('dojo/create', {name: $('input[name]').val()}, function(data){
+					alert(data);
+				});
+			});
+		});
+	</script>
 </body>
 </html>

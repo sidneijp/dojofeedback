@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, Response
 from models import Dojo, Comment
 from forms import DojoForm
 import simplejson
@@ -13,13 +13,13 @@ def index():
 
 
 @views.route('/dojo/<name>')
-def show(name):
+def comment(name):
     dojo = Dojo.get_or_404(name=name)
 
     return render_template('comentarios.html', dojo=dojo)
 
 
-@views.route('/dojo/<dojo_name>/feedback')
+@views.route('/dojo/<name>/feedback')
 def feedback(dojo_name):
     dojo = Dojo.get_or_404(name=dojo_name)
 
@@ -28,15 +28,15 @@ def feedback(dojo_name):
 
 @views.route('/dojo/create', methods=['POST'])
 def create():
-    response = {}
+    response = {'success': False}
     form = DojoForm(request.form)
     if form.validate():
         dojo = Dojo(name=request.form['name'])
         dojo.save()
-        response['feedback_link'] = url_for('.feedback', dojo_name=dojo.name)
-        return response
-
-    return simplejson.dumps(response)
+        response['dojo_link'] = url_for('.comment', name=dojo.name)
+        response['feedback_link'] = url_for('.feedback', name=dojo.name)
+        response['success'] = True
+    return Response(simplejson.dumps(response), mimetype="application/json")
 
 
 @views.route('/feedback/create', methods=['POST'])

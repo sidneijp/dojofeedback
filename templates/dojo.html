@@ -12,7 +12,6 @@
     <form action="#" method="post" accept-charset="utf-8" class="form_novo">
 	    <input type="text" name="name" placeholder="Nome do dojo" class="email">
 	    <input type="button" name="button" class="submit tip" value="Criar">
-	    <input type="submit" name="button" class="submit tip" value="Criar">
         {% if form.name.errors %}
             {% for error in form.name.errors %}
                 <br>{{ error }}

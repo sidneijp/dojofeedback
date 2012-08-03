@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, redirect, jsonify
+from flask import Blueprint, render_template, request, redirect, url_for
 from models import Dojo, Comment
 from forms import DojoForm
+import simplejson
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
 
@@ -27,12 +28,16 @@ def feedback(dojo_name):
 
 @views.route('/dojo/create', methods=['POST'])
 def create():
+    response = {}
     form = DojoForm(request.form)
     if form.validate():
         dojo = Dojo(name=request.form['name'])
         dojo.save()
-        return redirect('/dojo/%s' % dojo.name)
-    return render_template('dojo.html', form=form)
+        response['feedback_link'] = url_for('.feedback', dojo_name=dojo.name)
+        return response
+
+    return simplejson.dumps(response)
+
 
 @views.route('/feedback/create', methods=['POST'])
 def create_feedback():

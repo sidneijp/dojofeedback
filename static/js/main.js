@@ -16,7 +16,7 @@ $('.form_novo').on('submit', function() {
             $('.links:eq(1)').find('a').attr("href", feedback);
         }
         else{
-            alert("Dojo já existe.")
+            alert("Dojo já existe.");
         }
 
     });

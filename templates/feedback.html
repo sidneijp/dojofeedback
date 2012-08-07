@@ -1,13 +1,10 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-    <title> Dojo Feedback</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block templo %}
     <div class="templo templo_top"></div>
+{% endblock %}
+
+{% block conteudo %}
     <h2 class="titulo_centro">Feedback</h2>
     <div class='comentarios_feed' id="positivos">
     <h2>POSITIVO:</h2>    
@@ -31,19 +28,4 @@
             </ul>
         </div>
     </div>
-
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script>
-
-    $('.comentarios_feed').append('<p class="mensagem">Clique para exibir</p>');
-
-
-    $('.comentarios_feed').addClass("esconder_comentarios").click(function(){
-        $(this).toggleClass("esconder_comentarios")
-        $(this).find('.mensagem').toggleClass("esconder_mensagem")
-    });
-
-    </script>
-
-</body>
-</html>
+{% endblock %}

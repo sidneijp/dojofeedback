@@ -1,7 +1,17 @@
+html, body{
+    height: 100%;
+}
+
 body{
     font-family: 'Open Sans', sans-serif;
-    background: url(../img/background.jpg);
+    background: url(/static/img/background.jpg);
     margin:0 auto;
+}
+
+.conteudo{
+    min-height: 100%;
+    min-width: 1000px;
+    position: relative;
 }
 
 
@@ -9,14 +19,14 @@ body{
     margin: auto;
     width: 300px;
     height: 103px;
-    margin-top: 100px;
+    padding-top: 100px;
     background-image: url(../img/templo.png);
-
-  
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 
 .templo_top{
-    margin-top: 10px;
+    padding-top: 20px;
 }
 
 h2.titulo_centro{
@@ -26,6 +36,20 @@ h2.titulo_centro{
 .title_input{
     margin-top: 40px;
     text-align:center;
+}
+
+img.logo{
+    margin: 15px;
+    position: absolute;
+    background-repeat: no-repeat;
+    bottom: 0px;
+    right: 0px;
+}
+
+.footer{
+    clear: both;
+    width: 100%;
+    height: 90px;
 }
 
 .com{
@@ -96,9 +120,10 @@ h2.titulo_centro{
     padding:5px;
 }
 
-.links div{
+.links a{
     width: 160px;
     float:left;
+    text-decoration: none;
     margin: -5px 10px -5px -5px;
     padding: 5px;
     color: #000;
@@ -109,6 +134,9 @@ h2.titulo_centro{
     text-shadow: 0px 1px 2px #FFF;    
 }
 
+.links a:hover{
+    background-color: rgb(225,225,225);
+}
 
 .nome{
     position: relative;

@@ -20,8 +20,8 @@ def comment(name):
 
 
 @views.route('/dojo/<name>/feedback')
-def feedback(dojo_name):
-    dojo = Dojo.get_or_404(name=dojo_name)
+def feedback(name):
+    dojo = Dojo.get_or_404(name=name)
 
     return render_template('feedback.html', dojo=dojo)
 

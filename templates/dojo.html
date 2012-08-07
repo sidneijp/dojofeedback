@@ -1,14 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-    <title>Dojo Feedback</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="templo"></div>
+{% block conteudo %}
     <h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
     <form action="#" method="post" accept-charset="utf-8" class="form_novo">
         <input type="text" name="name" placeholder="Nome do dojo" class="email">
@@ -19,28 +11,6 @@
             {% endfor %}
         {% endif %}
     </form>
-
-    <div class="links"><div>Página de Comentários</div></div>
-    <div class="links"><div>Página de Feedback</div></div>
-
-    <!-- <a href="#"><div class="nome" style="display:none;">wwww.meudojo.com.br</div></a> -->
-    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script type="text/javascript">
-    $('.form_novo').on('submit', function() {
-
-        $.post('dojo/create', {name: $('input[name]').val().toLowerCase()}, function(data){
-            if(data.success){
-                $('.links:eq(0)').append("http://dojofeedback.herokuapp.com"+data.dojo_link);
-                $('.links:eq(1)').append("http://dojofeedback.herokuapp.com"+data.feedback_link);
-            }
-            else{
-                alert("Dojo já existe.")
-            }
-
-        });
-        return false;
-    });
-    </script>
-
-</body>
-</html>
+    <div class="links"><a href="#">Página de Comentários</a></div>
+    <div class="links"><a href="#">Página de Feedback</a></div>
+{% endblock %}

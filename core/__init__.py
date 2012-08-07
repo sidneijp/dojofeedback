@@ -13,6 +13,6 @@ connect('app5623357', host=host)
 app = Flask(__name__, static_folder='../static', template_folder='../templates')
 app.secret_key = 'dojofeedback'
 app.register_blueprint(views)
-
+app.debug = True
 if __name__ == "__main__":
     app.run()

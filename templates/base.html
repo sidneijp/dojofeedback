@@ -21,7 +21,10 @@
 
     </script>
 
-    <title>Dojo Feedback</title>
+    {% block title %}
+        <title>Dojo Feedback</title>
+    {% endblock %}
+    
 </head>
 <body>
     <div class="conteudo">
@@ -31,18 +34,6 @@
         {% endblock %}
 
         {% block conteudo %}
-            <h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
-            <form action="#" method="post" accept-charset="utf-8" class="form_novo">
-                <input type="text" name="name" placeholder="Nome do dojo" class="email">
-                <input type="submit" name="button" class="submit tip" value="Criar">
-                {% if form.name.errors %}
-                    {% for error in form.name.errors %}
-                        <br>{{ error }}
-                    {% endfor %}
-                {% endif %}
-            </form>
-            <div class="links"><a href="#">Página de Comentários</a></div>
-            <div class="links"><a href="#">Página de Feedback</a></div>
         {% endblock %}
 
         {% block footer %}

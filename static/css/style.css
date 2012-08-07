@@ -255,3 +255,8 @@ img.logo{
 .esconder_comentarios h2{
     color: #FFF;       
 }
+
+.erro{
+    margin-top: 100px;
+    text-align: center;
+}

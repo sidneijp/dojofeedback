@@ -47,14 +47,14 @@
 
         {% block footer %}
             <div class="footer">
-                <img class="logo" src="/static/img/cube.png" alt="Logotipo digital cube" title="digital cube">
+                <img width="180px" height="54px" class="logo" src="/static/img/cube.png" alt="Logotipo digital cube" title="digital cube">
             </div>
         {% endblock %}
     </div>
 
     {% block js %}
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.min.js') }}"></script>
     {% endblock %}
 
 </body>

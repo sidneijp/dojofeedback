@@ -20,7 +20,7 @@ try:
     app.debug = False
 except KeyError:
     host='localhost'
-    app.debug = False
+    app.debug = True
 
 connect('app5623357', host=host)
 

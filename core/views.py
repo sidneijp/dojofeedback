@@ -9,7 +9,7 @@ views = Blueprint('views', __name__, static_folder='../static', template_folder=
 @views.route('/')
 def index():
     form = DojoForm()
-    return render_template('dojo.html', fordm=form)
+    return render_template('dojo.html', form=form)
 
 
 @views.route('/dojo/<name>')

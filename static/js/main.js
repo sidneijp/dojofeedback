@@ -9,10 +9,12 @@ $('.form_novo').on('submit', function() {
             
             var comment = host+data.dojo_link;
             var feedback = host+data.feedback_link;
+            var comment_link = $('.links:eq(0)').html().match(/.*\/a\>/)[0];
+            var feedback_link = $('.links:eq(1)').html().match(/.*\/a\>/)[0];
 
-            $('.links:eq(0)').append(comment);
+            $('.links:eq(0)').html(comment_link + comment);
             $('.links:eq(0)').find('a').attr("href", comment);
-            $('.links:eq(1)').append(feedback);
+            $('.links:eq(1)').html(feedback_link + feedback);
             $('.links:eq(1)').find('a').attr("href", feedback);
             $('.progresso').attr('src', '/static/img/progresso/progress_2.png').attr('alt', 'etapa 2');
             $('div#errors_flash_messages').html('');

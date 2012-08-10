@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico')}}" />
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico')}}" />
@@ -30,7 +30,9 @@
     <div class="conteudo">
 
         {% block templo %}
-            <div class="templo"><img src="{{ url_for('static', filename='img/logo_r.png') }}">
+            <div class="templo">
+                <img width="400" height="108" alt="Dojo Feedback Logo" src="{{ url_for('static', filename='img/logo_r.png') }}">
+            </div>
         {% endblock %}
 
         {% block conteudo %}

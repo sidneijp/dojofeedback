@@ -28,12 +28,14 @@
 </head>
 <body>
     <div class="conteudo">
-        {% block progresso%}
-        {% endblock %}
-
         {% block templo %}
             <div class="templo">
                 <img width="400" height="108" alt="Dojo Feedback Logo" src="{{ url_for('static', filename='img/logo_r.png') }}" />
+            </div>
+        {% endblock %}
+
+        {% block progresso%}
+            <div class="menu_progresso menu_progresso_1">
             </div>
         {% endblock %}
 

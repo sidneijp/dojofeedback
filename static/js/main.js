@@ -16,7 +16,7 @@ $('.form_novo').on('submit', function() {
             $('.links:eq(0)').find('a').attr("href", comment);
             $('.links:eq(1)').html(feedback_link + feedback);
             $('.links:eq(1)').find('a').attr("href", feedback);
-            $('.progresso').attr('src', '/static/img/progresso/progress_2.png').attr('alt', 'etapa 2');
+            $('.menu_progresso').attr('class', 'menu_progresso menu_progresso_2');
             $('div#errors_flash_messages').html('');
         }
         else{

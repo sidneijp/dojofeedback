@@ -14,19 +14,43 @@ body{
     position: relative;
 }
 
-
 .templo{
     margin: auto;
     width: 400px;
+    padding-top:25px;
     height: 108px;
     background-repeat: no-repeat;
     background-position: bottom;
     margin-bottom:70px;
 }
-/*
-.templo_top{
-    padding-top: 20px;
-}*/
+
+.menu_progresso{
+    position:relative;
+    left: 50%;
+    margin-left: -255px;
+    width: 509px;
+    height: 87px;
+    margin-bottom:50px;
+    background-repeat: no-repeat;
+    list-style: none;
+    padding: 0px;
+}
+
+.menu_progresso_1{
+    background-image: url(/static/img/progresso/progress_1.png);   
+}
+
+.menu_progresso_2{
+    background-image: url(/static/img/progresso/progress_2.png);   
+}
+
+.menu_progresso_3{
+    background-image: url(/static/img/progresso/progress_3.png);   
+}
+
+.menu_progresso_4{
+    background-image: url(/static/img/progresso/progress_4.png);   
+}
 
 h2.titulo_centro{
     text-align:center;
@@ -258,23 +282,6 @@ img.logo{
 .erro{
     margin-top: 100px;
     text-align: center;
-}
-
-.progresso{
-    background-color: rgba(255,255,255,0.5);
-    -moz-border-radius: 0px 0px 5px 5px;
-    -webkit-border-radius: 0px 0px 5px 5px;
-    border-radius: 0px 0px 5px 5px;
-    box-shadow: 1px 3px 5px #AAA;
-    -moz-box-shadow: 1px 3px 5px #AAA;
-    -webkit-box-shadow: 1px 3px 5px, #AAA;
-    position:relative;
-    left: 50%;
-    margin-left: -225px;
-    width: 450px;
-    height: 77px;
-    margin-bottom:50px;
-
 }
 
 #errors_flash_messages{

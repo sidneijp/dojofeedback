@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{% block progresso %}
-    <img width="450" height="77" alt="etapa 3" class="progresso" src="{{ url_for('static', filename='img/progresso/progress_3.png')}}" />
-{% endblock %}
-
 {% block templo %}
     <div class="templo">
         <img width="400" height="108" alt="Dojo Feedback Logo" src="{{ url_for('static', filename='img/logo_r.png') }}" />
+    </div>
+{% endblock %}
+
+{% block progresso %}
+    <div class="menu_progresso menu_progresso_3">
     </div>
 {% endblock %}
 

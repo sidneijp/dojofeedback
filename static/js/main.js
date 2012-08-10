@@ -1,6 +1,6 @@
 $('.form_novo').on('submit', function() {
 
-    $.post('dojo/create', {name: $('input[name]').val().toLowerCase()}, function(data){
+    $.post('dojo/create/', {name: $('input[name]').val().toLowerCase()}, function(data){
         if(data.success){
             
             host = window.location.href.replace("#","");

@@ -11,7 +11,7 @@ class DojoForm(Form):
     def validate_name(self, field):
         try:
             Dojo.objects.get(name=field.data)
-            raise ValidationError('Ja existe um dojo com este nome')
+            raise ValidationError('Já existe um dojo com este nome')
         except Dojo.DoesNotExist:
             pass
 

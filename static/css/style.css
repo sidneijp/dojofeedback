@@ -276,3 +276,7 @@ img.logo{
     margin-bottom:50px;
 
 }
+
+#errors_flash_messages{
+    color: #F30;
+}

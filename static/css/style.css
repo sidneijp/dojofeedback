@@ -20,7 +20,7 @@ body{
     width: 300px;
     height: 103px;
     padding-top: 100px;
-    background-image: url(../img/templo.png);
+    /*background-image: url(../img/templo.png);*/
     background-repeat: no-repeat;
     background-position: bottom;
 }

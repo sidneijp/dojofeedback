@@ -14,6 +14,8 @@ $('.form_novo').on('submit', function() {
             $('.links:eq(0)').find('a').attr("href", comment);
             $('.links:eq(1)').append(feedback);
             $('.links:eq(1)').find('a').attr("href", feedback);
+            $('.progresso').attr('src', '/static/img/progresso/progress_2.png').attr('alt', 'etapa 2');
+
         }
         else{
             alert("Dojo já existe.");

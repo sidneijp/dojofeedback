@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block progresso %}
+    <img width="450" height="77" alt="etapa 1" class="progresso" src="{{ url_for('static', filename='img/progresso/progress_1.png')}}" />
+{% endblock %}
+
 {% block conteudo %}
     <h2 class="titulo_centro">Crie um nome para seu Dojo</h2>
     <form action="#" method="post" accept-charset="utf-8" class="form_novo">

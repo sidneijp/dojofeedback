@@ -13,19 +13,10 @@ class Dojo(Document):
     comments = ListField(EmbeddedDocumentField(Comment))
 
     def positives(self):
-        positives = []
-        for comment in self.comments:
-            if comment.status == '1':
-                positives.append(comment)
-        return positives
+        return [comment for comment in self.comments if comment.status == '1']
 
     def negatives(self):
-        negatives = []
-        for comment in self.comments:
-            if comment.status == '2':
-                negatives.append(comment)
-
-        return negatives
+        return [comment for comment in self.comments if comment.status == '2']
 
     @classmethod
     def get_or_404(cls, **kwargs):

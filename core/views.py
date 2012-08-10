@@ -36,6 +36,10 @@ def create():
         response['dojo_link'] = url_for('.comment', name=dojo.name)
         response['feedback_link'] = url_for('.feedback', name=dojo.name)
         response['success'] = True
+    else:
+        response['errors'] = []
+        for error in form.name.errors:
+            response['errors'].append(error)
     return Response(simplejson.dumps(response), mimetype="application/json")
 
 

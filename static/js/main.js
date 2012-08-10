@@ -14,9 +14,14 @@ $('.form_novo').on('submit', function() {
             $('.links:eq(0)').find('a').attr("href", comment);
             $('.links:eq(1)').append(feedback);
             $('.links:eq(1)').find('a').attr("href", feedback);
+
+            $('div#errors_flash_messages').html('');
         }
         else{
-            alert("Dojo já existe.");
+            $('div#errors_flash_messages').html('');
+            var i;
+            for (i in data.errors)
+                $('div#errors_flash_messages').append(data.errors[i]+'<br>');
         }
 
     });

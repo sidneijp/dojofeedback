@@ -5,7 +5,6 @@ import simplejson
 import httplib2
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
-client = httplib2.Http()
 
 
 @views.route('/')
@@ -30,7 +29,7 @@ def feedback(name):
 
 @views.route('/dojo/create/', methods=['POST'])
 def create():
-    miud_url = 'http://miud.in/api-create.php?url={0}'
+    #miud_url = 'http://miud.in/api-create.php?url={0}'
     response = {'success': False}
     form = DojoForm(request.form)
     if form.validate():
@@ -38,14 +37,15 @@ def create():
         host = request.headers['Origin']
         dojo.save()
 
-        dojo_link = host + url_for('.comment', name=dojo.name)
+        #client = httplib2.Http()
+
+        response['dojo_link'] = host + url_for('.comment', name=dojo.name)
         response['feedback_link'] = host + url_for('.feedback', name=dojo.name)
 
-        miud_response = client.request(miud_url.format(dojo_link))
-
-        dojo_link = miud_response[1]
+        #miud_response = client.request(miud_url.format(response['dojo_link']))
+        #if miud_response[0]['status'] == '200':
+        #    response['dojo_link'] = miud_response[1]
         response['success'] = True
-        response['dojo_link'] = dojo_link
     else:
         response['errors'] = []
         for error in form.name.errors:

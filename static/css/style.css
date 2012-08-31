@@ -137,7 +137,7 @@ img.logo{
     float: left;
     clear: left;
     position: relative;
-    top:60px;
+    top: 20px;
     left: 50%;
     margin: 5px 5px 5px -260px;
     padding:5px;
@@ -286,4 +286,18 @@ img.logo{
 
 #errors_flash_messages{
     color: #F30;
+}
+
+#qrcode{
+    width: 400px;
+    margin: 20px auto 0px auto;
+    background-color:rgba(200, 200, 200 ,0.6);
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+    padding: 5px 15px 15px 15px;
+
 }

@@ -4,3 +4,4 @@ gunicorn
 WTForms==1.0.1
 Flask-WTF==0.8
 simplejson
+httplib2

@@ -2,13 +2,8 @@ $('.form_novo').on('submit', function() {
 
     $.post('dojo/create/', {name: $('input[name]').val().toLowerCase()}, function(data){
         if(data.success){
-            
-            host = window.location.href.replace("#","");
-            data.dojo_link = String(data.dojo_link).replace("/","");
-            data.feedback_link = String(data.feedback_link).replace("/","");
-            
-            var comment = host+data.dojo_link;
-            var feedback = host+data.feedback_link;
+            var comment = data.dojo_link;
+            var feedback = data.feedback_link;
             var comment_link = $('.links:eq(0)').html().match(/.*\/a\>/)[0];
             var feedback_link = $('.links:eq(1)').html().match(/.*\/a\>/)[0];
 
@@ -33,15 +28,15 @@ $('.form_novo').on('submit', function() {
 
 $('.comentarios_feed').append('<p class="mensagem">Clique para exibir</p>');
 $('.comentarios_feed').addClass("esconder_comentarios").click(function(){
-    $(this).toggleClass("esconder_comentarios")
-    $(this).find('.mensagem').toggleClass("esconder_mensagem")
+    $(this).toggleClass("esconder_comentarios");
+    $(this).find('.mensagem').toggleClass("esconder_mensagem");
 });
 
 
 $(document).ready(function() {
     $('.submit').click(function(){
         if($(this).attr("title") == "positivo"){
-            $('#status').attr("value", "1");    
+            $('#status').attr("value", "1");
         }
         else{
             $('#status').attr("value", "2");

@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, Respon
 from models import Dojo, Comment
 from forms import DojoForm
 import simplejson
+import httplib2
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
 
@@ -28,13 +29,22 @@ def feedback(name):
 
 @views.route('/dojo/create/', methods=['POST'])
 def create():
+    miud_url = 'http://miud.in/api-create.php?url={0}'
     response = {'success': False}
     form = DojoForm(request.form)
     if form.validate():
         dojo = Dojo(name=request.form['name'])
+        host = request.headers['Origin']
         dojo.save()
-        response['dojo_link'] = url_for('.comment', name=dojo.name)
-        response['feedback_link'] = url_for('.feedback', name=dojo.name)
+
+        client = httplib2.Http()
+
+        response['dojo_link'] = host + url_for('.comment', name=dojo.name)
+        response['feedback_link'] = host + url_for('.feedback', name=dojo.name)
+
+        miud_response = client.request(miud_url.format(response['dojo_link']))
+        if miud_response[0]['status'] == '200':
+            response['dojo_link'] = miud_response[1]
         response['success'] = True
     else:
         response['errors'] = []

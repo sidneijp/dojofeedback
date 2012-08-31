@@ -5,6 +5,7 @@ import simplejson
 import httplib2
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
+client = httplib2.Http()
 
 
 @views.route('/')
@@ -36,8 +37,6 @@ def create():
         dojo = Dojo(name=request.form['name'])
         host = request.headers['Origin']
         dojo.save()
-
-        client = httplib2.Http()
 
         dojo_link = host + url_for('.comment', name=dojo.name)
         response['feedback_link'] = host + url_for('.feedback', name=dojo.name)

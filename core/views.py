@@ -39,13 +39,14 @@ def create():
 
         client = httplib2.Http()
 
-        response['dojo_link'] = host + url_for('.comment', name=dojo.name)
+        dojo_link = host + url_for('.comment', name=dojo.name)
         response['feedback_link'] = host + url_for('.feedback', name=dojo.name)
 
-        miud_response = client.request(miud_url.format(response['dojo_link']))
-        if miud_response[0]['status'] == '200':
-            response['dojo_link'] = miud_response[1]
+        miud_response = client.request(miud_url.format(dojo_link))
+
+        dojo_link = miud_response[1]
         response['success'] = True
+        response['dojo_link'] = dojo_link
     else:
         response['errors'] = []
         for error in form.name.errors:

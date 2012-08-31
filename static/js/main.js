@@ -15,7 +15,7 @@ $('.form_novo').on('submit', function() {
             $('div#errors_flash_messages').html('');
 
             $('#qrcode').find('img').attr('src', comment + '.qrcode');
-            $('#qrcode').css('display', 'block');
+            //$('#qrcode').css('display', 'block');
         }
         else{
             $('div#errors_flash_messages').html('');

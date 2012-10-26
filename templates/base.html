@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico')}}" />
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico')}}" />
@@ -27,6 +27,19 @@
     
 </head>
 <body>
+
+    {% block flash_message %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            <ul class="flashes">
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <li class="flashes-{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        {% endwith %}
+    {% endblock %}
+
     <div class="conteudo">
         {% block templo %}
             <div class="templo">
@@ -44,14 +57,16 @@
 
         {% block footer %}
             <div class="footer">
-                <a target="blank" href="http://digitalcube.com.br"><img width="180px" height="54px" class="logo" src="/static/img/cube.png" alt="Logotipo digital cube" title="digital cube" /></a>
+                <a target="blank" href="http://digitalcube.com.br">
+                    <img width="180px" height="54px" class="logo" src="/static/img/cube.png" alt="Logotipo digital cube" title="digital cube" />
+                </a>
             </div>
         {% endblock %}
     </div>
 
     {% block js %}
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/main.min.js') }}" charset="UTF-8"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}" charset="UTF-8"></script>
     {% endblock %}
 
 </body>

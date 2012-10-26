@@ -12,16 +12,16 @@ $('.form_novo').on('submit', function() {
             $('.links:eq(1)').html(feedback_link + feedback);
             $('.links:eq(1)').find('a').attr("href", feedback);
             $('.menu_progresso').attr('class', 'menu_progresso menu_progresso_2');
-            $('div#errors_flash_messages').html('');
+            $('.flashes').html('<li class="flashes-success">Dojo criado com sucesso.</li>');
 
             $('#qrcode').find('img').attr('src', comment + '.qrcode');
             //$('#qrcode').css('display', 'block');
         }
         else{
-            $('div#errors_flash_messages').html('');
+            $('.flashes').html('');
             var i;
             for (i in data.errors)
-                $('div#errors_flash_messages').append(data.errors[i]+'<br>');
+                $('.flashes').append('<li class="flashes-error">' + data.errors[i] + '</li>');
         }
 
     });

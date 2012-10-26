@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, Response
+from flask import Blueprint, render_template, request, redirect, url_for, Response, flash
 from models import Dojo, Comment
 from forms import DojoForm
 import simplejson

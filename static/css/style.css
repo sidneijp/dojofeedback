@@ -284,9 +284,6 @@ img.logo{
     text-align: center;
 }
 
-#errors_flash_messages{
-    color: #F30;
-}
 
 #qrcode{
     width: 400px;
@@ -300,4 +297,28 @@ img.logo{
     display: none;
     padding: 5px 15px 15px 15px;
 
+}
+
+.flashes{
+    padding: 0px;
+    margin: 0px 0px 10px 0px;
+}
+
+.flashes li{
+    background-color: rgba(150, 200, 200, 0.6);
+    color: #369;
+    padding: 5px 10px 5px 15px;
+    margin: 0px;
+    font-size: 16px;
+    list-style: none;
+}
+
+li.flashes-error{
+    background-color: rgba(200, 150, 150, 0.6);
+    color: #963;
+}
+
+li.flashes-success{
+    background-color: rgba(150, 200, 150, 0.6);
+    color: #396;
 }

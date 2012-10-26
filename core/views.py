@@ -3,6 +3,7 @@ from models import Dojo, Comment
 from forms import DojoForm
 import simplejson
 import httplib2
+import random
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
 
@@ -16,14 +17,12 @@ def index():
 @views.route('/dojo/<name>/')
 def comment(name):
     dojo = Dojo.get_or_404(name=name)
-
     return render_template('comentarios.html', dojo=dojo)
 
 
 @views.route('/dojo/<name>/feedback/')
 def feedback(name):
     dojo = Dojo.get_or_404(name=name)
-
     return render_template('feedback.html', dojo=dojo)
 
 
@@ -35,6 +34,7 @@ def create():
     if form.validate():
         dojo = Dojo(name=request.form['name'])
         host = request.headers['Origin']
+
         dojo.save()
 
         #client = httplib2.Http()
@@ -59,6 +59,7 @@ def create_feedback():
     comment = Comment(description=request.form['comment'],
         status=request.form['status'])
     dojo.comments.append(comment)
+    random.shuffle(dojo.comments)
     dojo.save()
 
     return redirect('/dojo/%s' % dojo.name)

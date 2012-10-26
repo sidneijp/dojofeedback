@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from mongoengine import Document, EmbeddedDocument, StringField, ListField, EmbeddedDocumentField
 from mongoengine.queryset import InvalidQueryError
 from flask import abort

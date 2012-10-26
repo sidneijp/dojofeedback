@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 from flask import Blueprint, render_template, request, redirect, url_for, Response, flash
 from models import Dojo, Comment
 from forms import DojoForm
@@ -56,10 +58,16 @@ def create():
 @views.route('/feedback/create/', methods=['POST'])
 def create_feedback():
     dojo = Dojo.get_or_404(id=request.form['dojo_id'])
-    comment = Comment(description=request.form['comment'],
-        status=request.form['status'])
-    dojo.comments.append(comment)
-    random.shuffle(dojo.comments)
-    dojo.save()
+    comment = request.form['comment'].strip()
 
+    if comment:
+        comment = Comment(description=comment,
+            status=request.form['status'])
+        dojo.comments.append(comment)
+        random.shuffle(dojo.comments)
+        dojo.save()
+        flash('Comentario salvo com sucesso', 'success')
+
+    else:
+        flash('Comentario em branco', 'error')
     return redirect('/dojo/%s' % dojo.name)

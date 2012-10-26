@@ -1,10 +1,11 @@
-#coding=utf-8
+# encoding=utf-8
 
 from wtforms import Form, TextField, validators, ValidationError
 from models import Dojo
 
+
 class DojoForm(Form):
-    name = TextField('Nome do Dojo', [ validators.Required(message="Campo obrigatorio"),
+    name = TextField('Nome do Dojo', [validators.Required(message="Campo obrigatorio"),
                                        validators.Length(min=1, max=100, message="Excedeu o maximo de caracteres")
                                      ])
 
@@ -14,4 +15,3 @@ class DojoForm(Form):
             raise ValidationError('Já existe um dojo com este nome')
         except Dojo.DoesNotExist:
             pass
-

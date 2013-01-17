@@ -3,8 +3,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, Response, flash
 from models import Dojo, Comment
 from forms import DojoForm
+from services import create_qrcode
 import simplejson
-import httplib2
 import random
 
 views = Blueprint('views', __name__, static_folder='../static', template_folder='../templates')
@@ -30,7 +30,6 @@ def feedback(name):
 
 @views.route('/dojo/create/', methods=['POST'])
 def create():
-    goqr_url = 'http://api.qrserver.com/v1/create-qr-code/?data=%s&size=250x250'
     response = {'success': False}
     form = DojoForm(request.form)
     if form.validate():
@@ -39,12 +38,11 @@ def create():
 
         dojo.save()
 
-        client = httplib2.Http()
-
         response['dojo_link'] = host + url_for('.comment', name=dojo.name)
         response['feedback_link'] = host + url_for('.feedback', name=dojo.name)
 
-        miud_response = client.request(goqr_url % (response['dojo_link']))
+        create_qrcode(response['dojo_link'])
+
         response['success'] = True
     else:
         response['errors'] = []

@@ -6,6 +6,7 @@ $('.form_novo').on('submit', function() {
             var feedback = data.feedback_link;
             var comment_link = $('.links:eq(0)').html().match(/.*\/a\>/)[0];
             var feedback_link = $('.links:eq(1)').html().match(/.*\/a\>/)[0];
+            var dojo_link = "http://api.qrserver.com/v1/create-qr-code/?data=" + comment + "&#38;size=250x250&#38;prov=goqrme";
 
             $('.links:eq(0)').html(comment_link + comment);
             $('.links:eq(0)').find('a').attr("href", comment);
@@ -14,8 +15,8 @@ $('.form_novo').on('submit', function() {
             $('.menu_progresso').attr('class', 'menu_progresso menu_progresso_2');
             $('.flashes').html('<li class="flashes-success">Dojo criado com sucesso.</li>');
 
-            $('#qrcode').find('img').attr('src', comment + '.qrcode');
-            //$('#qrcode').css('display', 'block');
+            $('#qrcode').find('img').attr('src', dojo_link);
+            $('#qrcode').css('display', 'block');
         }
         else{
             $('.flashes').html('');
